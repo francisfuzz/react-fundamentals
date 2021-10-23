@@ -15,12 +15,14 @@ function Box (props) {
   // Try to set box size based on client's choice.
   // If the client's choice isn't available, don't set a size.
   const sizeClass = sizeClasses[props.size] || null
-  const classNames = `box ${sizeClass ? ' ' + sizeClass : ''}`
 
-  // Combine styles, if specified
-  const style = Object.assign({fontStyle: 'italic'}, props.style)
-
-  return <div className={classNames} style={style}>{props.children}</div>
+  return (
+    <div
+      className={`box${sizeClass ? ' ' + sizeClass : ''}`}
+      style={{fontStyle: 'italic', ...props.style}}>
+      {props.children}
+    </div>
+  )
 }
 
 const smallBox
