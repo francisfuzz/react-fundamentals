@@ -11,14 +11,23 @@
     // Cache a reference to the root element.
     const rootElement = document.getElementById('root')
 
-    // Create a new react element of this type...
-    const elementType = 'div'
-    // ... with these properties
-    const elementProps = {
-      className: 'container',
-      children: 'Hello World!'
+    // Create a new `span` element with a unique-enough key.
+    // https://reactjs.org/docs/lists-and-keys.html#keys
+    function span (children) {
+      return React.createElement(
+        'span',
+        { key: Math.random().toString().slice(2) },
+        children
+      )
     }
-    const element = React.createElement(elementType, elementProps)
+
+    // Create a new `div` element with a `container` class and its children.
+    const elementChildren = [span('Hello'), ' ', span('World')]
+    const element = React.createElement(
+      'div',
+      { className: 'container'},
+      elementChildren
+    )
 
     // Render the component to the DOM.
     ReactDOM.render(element, rootElement)
