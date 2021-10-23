@@ -5,7 +5,18 @@ import * as React from 'react'
 import '../box-styles.css'
 
 function Box (props) {
-  const classNames = 'box' + (props.className ? ' ' + props.className : '')
+  // Map for available box sizes
+  const sizeClasses = {
+    small: 'box--small',
+    medium: 'box--medium',
+    large: 'box--large',
+  }
+
+  // Append box size class, if available
+  const sizeClass = sizeClasses[props.size] || null
+  const classNames = 'box' + (sizeClass ? ' ' + sizeClass : '')
+
+  // Combine styles, if specified
   const style = Object.assign({fontStyle: 'italic'}, props.style)
 
   return <div className={classNames} style={style}>{props.children}</div>
@@ -13,21 +24,21 @@ function Box (props) {
 
 const smallBox
   = <Box
-      className='box--small'
+      size="small"
       style={{ backgroundColor: 'lightblue' }}>
       small lightblue box
     </Box>
 
 const mediumBox
   = <Box
-      className="box--medium"
+      size="medium"
       style={{ backgroundColor: 'pink' }}>
       medium pink box
     </Box>
 
 const largeBox
   = <Box
-      className="box--large"
+      size="large"
       style={{ backgroundColor: 'orange' }}>
       large orange box
     </Box>
