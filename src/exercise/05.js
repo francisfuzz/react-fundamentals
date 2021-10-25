@@ -4,7 +4,9 @@
 import * as React from 'react'
 import '../box-styles.css'
 
-function Box (props) {
+// Set up the Box interface so a size, a classname, styles,
+// and any other props can be passed to the Box component.
+function Box ({size, className = '', style = {}, ...props}) {
   // Map for available box sizes
   const sizeClasses = {
     small: 'box--small',
@@ -14,16 +16,17 @@ function Box (props) {
 
   // Try to set box size based on client's choice.
   // If the client's choice isn't available, don't set a size.
-  const sizeClass = sizeClasses[props.size] || null
+  const sizeClass = sizeClasses[size] || ''
 
   return (
     <div
-      className={`box${sizeClass ? ' ' + sizeClass : ''}`}
-      style={{fontStyle: 'italic', ...props.style}}>
-      {props.children}
-    </div>
+      {...props}
+      className={['box', sizeClass, className].filter(Boolean).join(' ')}
+      style={{fontStyle: 'italic', ...style}}
+    />
   )
 }
+
 
 const smallBox
   = <Box
