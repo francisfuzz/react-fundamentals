@@ -25,6 +25,11 @@
 .keys #pear-input {
   background-color: #bef171;
 }
+.keys .coconut-input,
+.keys [for='coconut-input'],
+.keys #coconut-input {
+  background-color: #ab7343;
+}
 
 .keys li {
   margin-top: 10px;
