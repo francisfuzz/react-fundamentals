@@ -1,6 +1,5 @@
-// Styling
-// 💯 accept a size prop to encapsulate styling
-// http://localhost:3000/isolated/final/05.extra-2.js
+// @francisfuzz's final exercise putting it all together 😉
+// http://localhost:3000/isolated/final/07.extra-2.js
 
 import * as React from 'react'
 import '../box-styles.css'
