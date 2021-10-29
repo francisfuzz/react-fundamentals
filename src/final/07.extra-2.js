@@ -40,11 +40,22 @@ function OrangeBox () {
   )
 }
 
+function Row (n) {
+  return (
+    <div className="row">
+      {Array(n).fill(0).map((_, i) => <OrangeBox key={i} />)}
+    </div>
+  )
+}
 
 function App() {
   return (
-    <div>
-      <OrangeBox />
+    <div className="container">
+      {Row(5)}
+      {Row(5)}
+      {Row(5)}
+      {Row(5)}
+      {Row(5)}
     </div>
   )
 }
