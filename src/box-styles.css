@@ -17,3 +17,10 @@
   width: 90px;
   height: 90px;
 }
+.box--mini {
+  width: 1rem;
+  height: 1rem;
+}
+.container {
+  display: flex;
+}
